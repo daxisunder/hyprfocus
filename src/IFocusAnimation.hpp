@@ -5,6 +5,9 @@
 
 #include <hyprland/src/config/ConfigManager.hpp>
 
+using namespace Hyprutils::Memory;
+using namespace Hyprutils::Animation;
+
 class IFocusAnimation {
 public:
   virtual void onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle);
@@ -16,8 +19,8 @@ public:
   Hyprlang::CConfigValue *getConfigValue(HANDLE pHandle, std::string name);
 
 public:
-  SAnimationPropertyConfig m_sFocusInAnimConfig;
-  SAnimationPropertyConfig m_sFocusOutAnimConfig;
+  CSharedPointer<SAnimationPropertyConfig> m_sFocusInAnimConfig = makeShared<SAnimationPropertyConfig>();
+  CSharedPointer<SAnimationPropertyConfig> m_sFocusOutAnimConfig = makeShared<SAnimationPropertyConfig>();
 
   std::string m_szAnimationName;
 
