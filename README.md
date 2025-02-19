@@ -26,6 +26,7 @@ hyprpm add https://github.com/pyt0xic/hyprfocus
 to start using hyprfocus, add this to your hyprland config:
 
 ```
+plugin {
     hyprfocus {
         enabled = yes
         animate_floating = yes
@@ -55,6 +56,7 @@ to start using hyprfocus, add this to your hyprland config:
             out_speed = 2
         }
     }
+}
 ```
 
 ### plugin configuration
@@ -72,9 +74,11 @@ to start using hyprfocus, add this to your hyprland config:
 animations can be configured within the plugin scope with the following syntax:
 
 ```
-plugin:hyprfocus {
-    <animation> {
+plugin {
+    hyprfocus {
+        <animation> {
 
+        }
     }
 }
 ```
