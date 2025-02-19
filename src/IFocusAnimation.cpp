@@ -19,18 +19,18 @@ void IFocusAnimation::init(HANDLE pHandle, std::string animationName) {
                               Hyprlang::FLOAT{5.f});
 
   m_sFocusInAnimConfig =
-      *(g_pConfigManager->getAnimationPropertyConfig("global"));
-  m_sFocusInAnimConfig.internalEnabled = 1;
-  m_sFocusInAnimConfig.internalStyle =
+      (g_pConfigManager->getAnimationPropertyConfig("global"));
+  m_sFocusInAnimConfig->internalEnabled = 1;
+  m_sFocusInAnimConfig->internalStyle =
       std::string("hyprfocus_") + animationName + std::string("_in");
-  m_sFocusInAnimConfig.pValues = &m_sFocusInAnimConfig;
+  m_sFocusInAnimConfig->pValues = m_sFocusInAnimConfig;
 
   m_sFocusOutAnimConfig =
-      *(g_pConfigManager->getAnimationPropertyConfig("global"));
-  m_sFocusOutAnimConfig.internalEnabled = 1;
-  m_sFocusOutAnimConfig.internalStyle =
+      (g_pConfigManager->getAnimationPropertyConfig("global"));
+  m_sFocusOutAnimConfig->internalEnabled = 1;
+  m_sFocusOutAnimConfig->internalStyle =
       std::string("hyprfocus_") + animationName + std::string("_out");
-  m_sFocusOutAnimConfig.pValues = &m_sFocusOutAnimConfig;
+  m_sFocusOutAnimConfig->pValues = CWeakPointer<SAnimationPropertyConfig>(m_sFocusOutAnimConfig);
 }
 
 void IFocusAnimation::setup(HANDLE pHandle, std::string animationName) {
@@ -55,17 +55,17 @@ void IFocusAnimation::onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle) {
       (Hyprlang::FLOAT *const *)(HyprlandAPI::getConfigValue(
                                      pHandle, configPrefix() + "out_speed")
                                      ->getDataStaticPtr());
-  m_sFocusInAnimConfig.internalBezier = *inBezier;
-  m_sFocusInAnimConfig.internalSpeed = **inSpeed;
+  m_sFocusInAnimConfig->internalBezier = *inBezier;
+  m_sFocusInAnimConfig->internalSpeed = **inSpeed;
 
-  m_sFocusOutAnimConfig.internalBezier = *outBezier;
-  m_sFocusOutAnimConfig.internalSpeed = **outSpeed;
+  m_sFocusOutAnimConfig->internalBezier = *outBezier;
+  m_sFocusOutAnimConfig->internalSpeed = **outSpeed;
 
   hyprfocus_log(LOG, "In bezier: {} In speed: {} Out bezier: {} Out speed: {}",
-                m_sFocusInAnimConfig.internalBezier,
-                m_sFocusInAnimConfig.internalSpeed,
-                m_sFocusOutAnimConfig.internalBezier,
-                m_sFocusOutAnimConfig.internalSpeed);
+                m_sFocusInAnimConfig->internalBezier,
+                m_sFocusInAnimConfig->internalSpeed,
+                m_sFocusOutAnimConfig->internalBezier,
+                m_sFocusOutAnimConfig->internalSpeed);
 }
 
 void IFocusAnimation::addConfigValue(HANDLE pHandle, std::string name,
