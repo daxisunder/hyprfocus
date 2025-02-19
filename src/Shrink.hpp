@@ -6,5 +6,5 @@ public:
   void init(HANDLE pHandle, std::string animationName) override;
   void setup(HANDLE pHandle, std::string animationName) override;
 
-  CAnimatedVariable<float> m_sShrinkAnimation;
+  PHLANIMVAR<float> m_sShrinkAnimation;
 };
