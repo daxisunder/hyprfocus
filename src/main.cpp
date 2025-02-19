@@ -64,23 +64,34 @@ void flashWindow(PHLWINDOW pWindow) {
   }
 }
 
-void flashCurrentWindow(std::string) {
+SDispatchResult flashCurrentWindow(std::string) {
   hyprfocus_log(LOG, "Flashing current window");
+    SDispatchResult result = {
+        .passEvent = false,
+        .success = true,        
+    };
   static auto *const PHYPRFOCUSENABLED =
       (Hyprlang::INT *const *)HyprlandAPI::getConfigValue(
           PHANDLE, "plugin:hyprfocus:enabled")
           ->getDataStaticPtr();
   if (!*PHYPRFOCUSENABLED) {
+    const std::string message = "HyprFocus is disabled";
     hyprfocus_log(LOG, "HyprFocus is disabled");
-    return;
+    result.success = false;
+    result.error = message;
+    return result;
   }
 
   if (g_pPreviouslyFocusedWindow == nullptr) {
+    const std::string message = "No previously focused window";
     hyprfocus_log(LOG, "No previously focused window");
-    return;
+    result.success = false;
+    result.error = message;
+    return result;
   }
-
+  result.passEvent = true;
   flashWindow(g_pPreviouslyFocusedWindow);
+  return result;
 }
 
 static void onActiveWindowChange(void *self, std::any data) {
@@ -169,7 +180,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
                               Hyprlang::INT{1});
   HyprlandAPI::addConfigValue(PHANDLE, "plugin:hyprfocus:focus_animation",
                               Hyprlang::STRING("flash"));
-  HyprlandAPI::addDispatcher(PHANDLE, "animatefocused", &flashCurrentWindow);
+  HyprlandAPI::addDispatcherV2(PHANDLE, "animatefocused", &flashCurrentWindow);
 
   g_mAnimations["flash"] = std::make_unique<CFlash>();
   g_mAnimations["shrink"] = std::make_unique<CShrink>();
@@ -181,7 +192,8 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
   }
 
   HyprlandAPI::reloadConfig();
-  g_pConfigManager->tick();
+  // g_pConfigManager->tick();
+  g_pAnimationManager->tick();
   hyprfocus_log(LOG, "Reloaded config");
 
   // Register callbacks
