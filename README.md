@@ -39,6 +39,7 @@ plugin {
         bezier = smoothOut, 0.36, 0, 0.66, -0.56
         bezier = smoothIn, 0.25, 1, 0.5, 1
         bezier = realsmooth, 0.28,0.29,.69,1.08
+        bezier = easeInOutBack, 0.68, -0.6, 0.32, 1.6
         # Flash settings
         flash {
             flash_opacity = 0.95
