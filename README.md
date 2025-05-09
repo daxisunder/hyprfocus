@@ -18,7 +18,8 @@ shrink
 instructions based on [the official wiki](https://wiki.hyprland.org/Plugins/Using-Plugins/#compiling-official-plugins)
 
 ```
-hyprpm add https://github.com/pyt0xic/hyprfocus
+hyprpm add https://github.com/daxisunder/hyprfocus
+hyprpm enable hyprfocus
 ```
 
 ## getting started
@@ -114,3 +115,4 @@ bind = $mod, space, animatefocused
 
 - [flashfocus](https://github.com/fennerm/flashfocus): An earlier project of similar nature
 - [Original repo](https://github.com/VortexCoyote/hyprfocus.git)
+- [upstream](https://github.com/pyt0xic/hyprfocus)
