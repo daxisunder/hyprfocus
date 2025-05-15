@@ -33,21 +33,6 @@ static bool OnSameWorkspace(PHLWINDOW pWindow1, PHLWINDOW pWindow2) {
 }
 
 void flashWindow(PHLWINDOW pWindow) {
-  // static const Hyprlang::STRING *focusAnimation = nullptr;
-  // if (g_bMouseWasPressed == true) {
-  //   hyprfocus_log(LOG, "Mouse was pressed");
-  //   focusAnimation =
-  //       (Hyprlang::STRING const *)(HyprlandAPI::getConfigValue(
-  //                                      PHANDLE,
-  //                                      "plugin:hyprfocus:mouse_focus_animation")
-  //                                      ->getDataStaticPtr());
-  // } else {
-  //   focusAnimation =
-  //       (Hyprlang::STRING const
-  //            *)(HyprlandAPI::getConfigValue(
-  //                   PHANDLE, "plugin:hyprfocus:keyboard_focus_animation")
-  //                   ->getDataStaticPtr());
-  // }
   static const Hyprlang::STRING *focusAnimation =
       (Hyprlang::STRING const *)(HyprlandAPI::getConfigValue(
                                      PHANDLE,
@@ -66,10 +51,10 @@ void flashWindow(PHLWINDOW pWindow) {
 
 SDispatchResult flashCurrentWindow(std::string) {
   hyprfocus_log(LOG, "Flashing current window");
-    SDispatchResult result = {
-        .passEvent = false,
-        .success = true,        
-    };
+  SDispatchResult result = {
+      .passEvent = false,
+      .success = true,
+  };
   static auto *const PHYPRFOCUSENABLED =
       (Hyprlang::INT *const *)HyprlandAPI::getConfigValue(
           PHANDLE, "plugin:hyprfocus:enabled")
@@ -128,7 +113,7 @@ static void onActiveWindowChange(void *self, std::any data) {
       return;
     }
 
-    if (PWINDOW->m_bIsFloating && !**PANIMATEFLOATING) {
+    if (PWINDOW->m_isFloating && !**PANIMATEFLOATING) {
       hyprfocus_log(LOG, "Floating window, not animating");
       g_pPreviouslyFocusedWindow = PWINDOW;
       return;
