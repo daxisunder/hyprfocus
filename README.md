@@ -1,9 +1,9 @@
 # hyprfocus
 
 A plugin which provides focus animations for us borderless folks, originally inspired by [flashfocus](https://github.com/fennerm/flashfocus)!
-Modified to work with the latest Hyprland and support hyprpm as well as some other improvements.
+Modified to work with the latest Hyprland and to support hyprpm as well as some other improvements.
 
-## animations
+## Animations:
 
 flash
 
@@ -13,18 +13,18 @@ shrink
 
 ![preview](shrink.gif)
 
-## installation
+## Installation:
 
-instructions based on [the official wiki](https://wiki.hyprland.org/Plugins/Using-Plugins/#compiling-official-plugins)
+Instructions based on [the official wiki](https://wiki.hyprland.org/Plugins/Using-Plugins/#compiling-official-plugins)
 
 ```
 hyprpm add https://github.com/daxisunder/hyprfocus
 hyprpm enable hyprfocus
 ```
 
-## getting started
+## Getting started:
 
-to start using hyprfocus, add this to your hyprland config:
+To start using hyprfocus, add this to your hyprland config:
 
 ```
 plugin {
@@ -61,7 +61,7 @@ plugin {
 }
 ```
 
-### plugin configuration
+### Plugin configuration:
 
 `enabled` (yes/no) -> enable or disable the plugin
 
@@ -71,9 +71,9 @@ plugin {
 
 `animate_floating` (yes/no) -> Whether to trigger the focus animation for floating windows
 
-### animations configuration
+### Animations configuration:
 
-animations can be configured within the plugin scope with the following syntax:
+Animations can be configured within the plugin scope with the following syntax:
 
 ```
 plugin {
@@ -85,7 +85,7 @@ plugin {
 }
 ```
 
-### shared animation variables
+### Shared animation variables:
 
 `in_bezier` (bezier) -> bezier curve towards the animation apex
 
@@ -95,24 +95,25 @@ plugin {
 
 `out_speed` (float) -> speed for the 'out' bezier
 
-### flash
+### Flash:
 
 `flash_opacity` (float) -> opacity to during the flash's apex
 
-### shrink
+### Shrink:
 
 `shrink_percentage` (float) -> the amount a window has shrunk during the animation's apex
 
-### dispatching
+### Dispatching:
 
-hyprfocus can also flash the currently focused window through the `animatefocused` dispatcher:
+Hyprfocus can also flash the currently focused window through the `animatefocused` dispatcher:
 
 ```
 bind = $mod, space, animatefocused
 ```
 
-# Special thanks
+# Special thanks:
 
 - [flashfocus](https://github.com/fennerm/flashfocus): An earlier project of similar nature
 - [Original repo](https://github.com/VortexCoyote/hyprfocus.git)
 - [upstream](https://github.com/pyt0xic/hyprfocus)
+- [fork](https://github.com/avih7531/hyprfocus)
