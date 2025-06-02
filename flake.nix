@@ -28,7 +28,10 @@
             ];
           };
 
-          nativeBuildInputs = with pkgs; [pkg-config];
+          nativeBuildInputs = with pkgs; [
+            pkg-config
+            gnumake
+          ];
 
           buildInputs = with pkgs;
             [
