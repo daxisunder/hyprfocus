@@ -1,7 +1,7 @@
 # hyprfocus
 
 A plugin which provides focus animations for us borderless folks, originally inspired by [flashfocus](https://github.com/fennerm/flashfocus)!
-Modified to work with the latest Hyprland and to support hyprpm as well as some other improvements.
+Modified to work with the latest Hyprland, to support hyprpm as well as some other improvements.
 
 ## Animations:
 
