@@ -115,5 +115,5 @@ bind = $mod, space, animatefocused
 
 - [flashfocus](https://github.com/fennerm/flashfocus): An earlier project of similar nature
 - [Original repo](https://github.com/VortexCoyote/hyprfocus.git)
-- [upstream](https://github.com/pyt0xic/hyprfocus)
+- [upstream](https://github.com/pyt0xic/hyprfocus) Unmaintained since Hyprland 0.48.0
 - [fork](https://github.com/avih7531/hyprfocus)
