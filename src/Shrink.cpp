@@ -3,7 +3,7 @@
 #include "Log.hpp"
 #include <hyprland/src/Compositor.hpp>
 #include <hyprland/src/desktop/Window.hpp>
-#include <hyprland/src/managers/AnimationManager.hpp>
+#include <hyprland/src/managers/animation/AnimationManager.hpp>
 #include <hyprland/src/plugins/PluginAPI.hpp>
 
 void CShrink::init(HANDLE pHandle, std::string animationName) {
