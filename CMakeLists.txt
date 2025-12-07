@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.27)
 project(
   hyprfocus
   DESCRIPTION
-    "focus animation plugin for Hyprland inspired by Flashfocus (pyt0xic fork)"
+    "focus animation plugin for Hyprland inspired by Flashfocus (daxisunder fork)"
   VERSION 0.1)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
