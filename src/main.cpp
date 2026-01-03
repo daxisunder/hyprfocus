@@ -33,34 +33,20 @@ static bool OnSameWorkspace(PHLWINDOW pWindow1, PHLWINDOW pWindow2) {
 }
 
 void flashWindow(PHLWINDOW pWindow) {
-    // static const Hyprlang::STRING *focusAnimation = nullptr;
-
+  // static const Hyprlang::STRING *focusAnimation = nullptr;
   // if (g_bMouseWasPressed == true) {
-
   //   hyprfocus_log(Log::INFO, "Mouse was pressed");
-
   //   focusAnimation =
-
   //       (Hyprlang::STRING const *)(HyprlandAPI::getConfigValue(
-
   //                                      PHANDLE,
-
   //                                      "plugin:hyprfocus:mouse_focus_animation")
-
   //                                      ->getDataStaticPtr());
-
   // } else {
-
   //   focusAnimation =
-
   //       (Hyprlang::STRING const
-
   //            *)(HyprlandAPI::getConfigValue(
-
   //                   PHANDLE, "plugin:hyprfocus:keyboard_focus_animation")
-
   //                   ->getDataStaticPtr());
-
   // }
   static const Hyprlang::STRING *focusAnimation =
       (Hyprlang::STRING const *)(HyprlandAPI::getConfigValue(
