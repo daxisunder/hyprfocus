@@ -1,6 +1,6 @@
 #pragma once
 #define WLR_USE_UNSTABLE
-#include <hyprland/src/debug/log/Logger.hpp>
+#include <hyprland/src/debug/log/logger.hpp>
 
 template <typename... Args>
 void hyprfocus_log(Hyprutils::CLI::eLogLevel level, std::format_string<Args...> fmt,
