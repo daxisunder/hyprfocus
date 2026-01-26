@@ -66,10 +66,10 @@ void flashWindow(PHLWINDOW pWindow) {
 
 SDispatchResult flashCurrentWindow(std::string) {
   hyprfocus_log(Log::INFO, "Flashing current window");
-    SDispatchResult result = {
-        .passEvent = false,
-        .success = true,        
-    };
+  SDispatchResult result = {
+      .passEvent = false,
+      .success = true,
+  };
   static auto *const PHYPRFOCUSENABLED =
       (Hyprlang::INT *const *)HyprlandAPI::getConfigValue(
           PHANDLE, "plugin:hyprfocus:enabled")

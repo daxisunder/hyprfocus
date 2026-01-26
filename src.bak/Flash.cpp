@@ -35,12 +35,13 @@ void CFlash::onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle) {
                                      ->getDataStaticPtr());
   *pWindow->m_alpha = **flash_opacity;
   pWindow->m_alpha->setConfig(m_sFocusInAnimConfig);
-  pWindow->m_alpha->setCallbackOnEnd([this, pWindow, pHandle](CWeakPointer<CBaseAnimatedVariable> pAnim) {
-    static const auto *active_opacity =
-        (Hyprlang::FLOAT *const *)(HyprlandAPI::getConfigValue(
-                                       pHandle, "decoration:active_opacity")
-                                       ->getDataStaticPtr());
-    *pWindow->m_alpha = **active_opacity;
-    pWindow->m_alpha->setConfig(m_sFocusOutAnimConfig);
-  });
+  pWindow->m_alpha->setCallbackOnEnd(
+      [this, pWindow, pHandle](CWeakPointer<CBaseAnimatedVariable> pAnim) {
+        static const auto *active_opacity =
+            (Hyprlang::FLOAT *const *)(HyprlandAPI::getConfigValue(
+                                           pHandle, "decoration:active_opacity")
+                                           ->getDataStaticPtr());
+        *pWindow->m_alpha = **active_opacity;
+        pWindow->m_alpha->setConfig(m_sFocusOutAnimConfig);
+      });
 }
