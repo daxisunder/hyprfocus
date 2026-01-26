@@ -35,13 +35,14 @@ void CShrink::onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle) {
   pWindow->m_realSize->setConfig(m_sFocusOutAnimConfig);
   pWindow->m_realPosition->setConfig(m_sFocusOutAnimConfig);
 
-  g_pAnimationManager->createAnimation(1.0f, m_sShrinkAnimation, 
-                                     m_sFocusOutAnimConfig, pWindow, AVARDAMAGE_ENTIRE);
+  g_pAnimationManager->createAnimation(1.0f, m_sShrinkAnimation,
+                                       m_sFocusOutAnimConfig, pWindow,
+                                       AVARDAMAGE_ENTIRE);
 
   static const auto *shrinkPercentage =
       (Hyprlang::FLOAT *const *)(getConfigValue(pHandle, "shrink_percentage")
                                      ->getDataStaticPtr());
-  hyprfocus_log(Log::INFO, "Shrink percentage: {}", **shrinkPercentage);
+  hyprfocus_log(Log::INFO "Shrink percentage: {}", shrinkPercentage);
   m_sShrinkAnimation->setValue(**shrinkPercentage);
 
   m_sShrinkAnimation->setUpdateCallback(
@@ -54,7 +55,7 @@ void CShrink::onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle) {
 
         pWindow->m_realSize->setValue(GOALSIZE * PANIMATION->value());
         pWindow->m_realPosition->setValue(GOALPOS + GOALSIZE / 2.f -
-                                           pWindow->m_realSize->value() / 2.f);
+                                          pWindow->m_realSize->value() / 2.f);
       });
 
   m_sShrinkAnimation->setCallbackOnEnd(
