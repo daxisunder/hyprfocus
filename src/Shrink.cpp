@@ -42,7 +42,7 @@ void CShrink::onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle) {
   static const auto *shrinkPercentage =
       (Hyprlang::FLOAT *const *)(getConfigValue(pHandle, "shrink_percentage")
                                      ->getDataStaticPtr());
-  hyprfocus_log(Log::INFO "Shrink percentage: {}", **shrinkPercentage);
+  hyprfocus_log(Log::INFO "Shrink percentage: {}", shrinkPercentage);
   m_sShrinkAnimation->setValue(**shrinkPercentage);
 
   m_sShrinkAnimation->setUpdateCallback(
