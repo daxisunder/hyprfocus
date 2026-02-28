@@ -1,10 +1,14 @@
 [repository]
 name = "hyprfocus"
-authors = ["VortexCoyote, OakleyCord, vaxerski, DRAGONTOS, pyt0xic, alyanser, noisethanks, avih7531, daxisunder"]
+authors = [
+  "VortexCoyote, OakleyCord, vaxerski, DRAGONTOS, pyt0xic, alyanser, noisethanks, avih7531, daxisunder",
+]
 
 [hyprfocus]
 description = "A focus animation plugin for Hyprland inspired by Flashfocus (daxisunder fork)"
-# authors = ["VortexCoyote, OakleyCord, vaxerski, DRAGONTOS, pyt0xic, alyanser, noisethanks, avih7531, daxisunder"]
+authors = [
+  "VortexCoyote, OakleyCord, vaxerski, DRAGONTOS, pyt0xic, alyanser, noisethanks, avih7531, daxisunder",
+]
 output = "hyprfocus.so"
 # commit_pins = [
 #     ["1c460e98f870676b15871fe4e5bfeb1a32a3d6d8", "2af0c1e87e3cdcef3c8f9c7def918982312d0b75"],
@@ -12,6 +16,4 @@ output = "hyprfocus.so"
 #     ["0c513ba91bd73106be99e35b1a020d24e5ae874a", "e44b956dd4b7507489219bd2b02a3886d547b7e2"],
 #     ["cba1ade848feac44b2eda677503900639581c3f4", "49dbe19e08f963e01ac4ba17b42719956d390ec7"],
 # ]
-build = [
-    "make all"
-]
+build = ["make all"]
