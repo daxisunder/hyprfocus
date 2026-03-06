@@ -26,8 +26,12 @@ void CShrink::onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle) {
   hyprfocus_log(Log::INFO, "Current animation style: {}", currentAnimStyle);
   if ((currentAnimStyle == "popout" || currentAnimStyle == "popin") &&
       pWindow->m_realSize->isBeingAnimated()) {
-    hyprfocus_log(Log::INFO, "Shrink: Window is already being animated, skipping");
+    hyprfocus_log(Log::INFO,
+                  "Shrink: Window is already being animated, skipping");
     return;
+  }
+  if (m_sShrinkAnimation) {
+    m_sShrinkAnimation->resetAllCallbacks();
   }
 
   IFocusAnimation::onWindowFocus(pWindow, pHandle);
@@ -35,8 +39,9 @@ void CShrink::onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle) {
   pWindow->m_realSize->setConfig(m_sFocusOutAnimConfig);
   pWindow->m_realPosition->setConfig(m_sFocusOutAnimConfig);
 
-  g_pAnimationManager->createAnimation(1.0f, m_sShrinkAnimation, 
-                                     m_sFocusOutAnimConfig, pWindow, AVARDAMAGE_ENTIRE);
+  g_pAnimationManager->createAnimation(1.0f, m_sShrinkAnimation,
+                                       m_sFocusOutAnimConfig, pWindow,
+                                       AVARDAMAGE_ENTIRE);
 
   static const auto *shrinkPercentage =
       (Hyprlang::FLOAT *const *)(getConfigValue(pHandle, "shrink_percentage")
@@ -54,7 +59,7 @@ void CShrink::onWindowFocus(PHLWINDOW pWindow, HANDLE pHandle) {
 
         pWindow->m_realSize->setValue(GOALSIZE * PANIMATION->value());
         pWindow->m_realPosition->setValue(GOALPOS + GOALSIZE / 2.f -
-                                           pWindow->m_realSize->value() / 2.f);
+                                          pWindow->m_realSize->value() / 2.f);
       });
 
   m_sShrinkAnimation->setCallbackOnEnd(
