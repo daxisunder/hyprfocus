@@ -10,8 +10,8 @@
 #include <hyprland/src/debug/log/Logger.hpp>
 
 #include <hyprland/src/Compositor.hpp>
-#include <hyprland/src/desktop/view/Window.hpp>
 #include <hyprland/src/animation/AnimationManager.hpp>
+#include <hyprland/src/desktop/view/Window.hpp>
 
 #include "Flash.hpp"
 #include "Shrink.hpp"
@@ -108,7 +108,6 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
   }
 
   HyprlandAPI::reloadConfig();
-  g_pAnimationManager->tick();
   hyprfocus_log(Log::INFO, "Reloaded config");
 
   g_lActiveWindow = Event::bus()->m_events.window.active.listen(
