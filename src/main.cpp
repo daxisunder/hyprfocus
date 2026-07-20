@@ -11,7 +11,7 @@
 
 #include <hyprland/src/Compositor.hpp>
 #include <hyprland/src/desktop/view/Window.hpp>
-#include <hyprland/src/managers/animation/AnimationManager.hpp>
+#include <hyprland/src/animation/AnimationManager.hpp>
 
 #include "Flash.hpp"
 #include "Shrink.hpp"
